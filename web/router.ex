@@ -17,6 +17,15 @@ defmodule Cumbia.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+
+    scope "dashboard", Cumbia do
+      get "/", DashboardController, :show
+      get "/new", DashboardController, :new
+      get "/:project_id", DashboardController, :show
+      post "/:project_id", AudioController, :generate
+
+      get "/:project_id/audio/:audio_id", DashboardController, :show
+    end
   end
 
   # Other scopes may use custom stacks.
