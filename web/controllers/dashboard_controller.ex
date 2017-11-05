@@ -1,7 +1,7 @@
 defmodule Cumbia.DashboardController do
   use Cumbia.Web, :controller
 
-  alias Cumbia.{MasterQueries}
+  alias Cumbia.{MasterQueries, PageView}
 
   def show(conn, %{"project_id" => project_id, "audio_id" => audio_id}) do
     project = MasterQueries.show(Cumbia.Project, project_id)
@@ -19,7 +19,9 @@ defmodule Cumbia.DashboardController do
 
   def index(conn, _) do
     projects = MasterQueries.index(Cumbia.Project, [preload: :audio])
-    # render
+
+    data = %{projects: []}
+    render(conn, LayoutView, "app.html", [component_name: "Dashboard", data: data])
   end
 
   def new(conn, _) do

@@ -20,3 +20,9 @@ import "react-phoenix"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+
+import Dashboard from "./components/views/Dashboard"
+
+window.Components = {
+  Dashboard
+}

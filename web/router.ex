@@ -18,8 +18,8 @@ defmodule Cumbia.Router do
 
     get "/", PageController, :index
 
-    scope "dashboard", Cumbia do
-      get "/", DashboardController, :show
+    scope "/dashboard" do
+      get "/", DashboardController, :index
       get "/new", DashboardController, :new
       get "/:project_id", DashboardController, :show
       post "/:project_id", AudioController, :generate
