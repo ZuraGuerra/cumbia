@@ -52,6 +52,8 @@ defmodule Cumbia.Web do
       import Cumbia.Router.Helpers
       import Cumbia.ErrorHelpers
       import Cumbia.Gettext
+
+      import ReactPhoenix.ClientSide
     end
   end
 
