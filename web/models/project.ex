@@ -1,6 +1,8 @@
 defmodule Cumbia.Project do
   use Cumbia.Web, :model
 
+  @creation_fields ~w(name description tags)a
+
   schema "projects" do
     field :name, :string
     field :description, :string
@@ -10,12 +12,9 @@ defmodule Cumbia.Project do
     timestamps()
   end
 
-  @doc """
-  Builds a changeset based on the `struct` and `params`.
-  """
-  def changeset(struct, params \\ %{}) do
-    struct
-    |> cast(params, [:name, :description, :youtube_url, :tags])
-    |> validate_required([:name, :description, :youtube_url, :tags])
+  def creation(params) do
+    %Cumbia.Project{}
+    |> cast(params, @creation_fields)
+    |> validate_required(@creation_fields)
   end
 end

@@ -4,7 +4,7 @@ defmodule Cumbia.GeneralParsers do
                    |> String.split(["_", "-"], trim: true) # ["user", "list"]
                    |> Enum.map(&String.capitalize/1) # ["User", "List"]
                    |> Enum.join # "UserList"
-    Module.concat(Sphingi, submodule_name)
+    Module.concat(Cumbia, submodule_name)
   end
 
   def module_name(name, suffix) when is_atom(suffix) do

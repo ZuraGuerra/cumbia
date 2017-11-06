@@ -1,1 +1,22 @@
 /* This file is for your main application css. */
+.section {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card {
+  height: 20rem;
+  width: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .button {
+  width: 18rem;
+  height: 18rem;
+}
+
+i.fa {
+  font-size:40px;
+}

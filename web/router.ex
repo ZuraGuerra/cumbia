@@ -29,7 +29,9 @@ defmodule Cumbia.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Cumbia do
-  #   pipe_through :api
-  # end
+  scope "/api", Cumbia do
+    pipe_through :api
+
+    post "/:entity_name", MasterController, :create
+  end
 end

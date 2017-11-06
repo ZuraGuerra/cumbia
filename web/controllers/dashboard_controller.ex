@@ -20,7 +20,7 @@ defmodule Cumbia.DashboardController do
   def index(conn, _) do
     projects = MasterQueries.index(Cumbia.Project, [preload: :audio])
 
-    data = %{projects: []}
+    data = %{projects: projects}
     render(conn, LayoutView, "app.html", [component_name: "Dashboard", data: data])
   end
 
